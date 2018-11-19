@@ -1,0 +1,47 @@
+/* ---SLICK SLIDER CHANGED STYLE -----*/
+.wpsisac-slick-slider button.slick-next, .wpsisac-slick-slider button.slick-next:hover, .wpsisac-slick-slider button.slick-next:focus{
+    background: url(/wp-content/themes/Urich-Blog/inc/urich/img/right.svg) center center no-repeat !important;
+    background-size: auto!important;
+    outline:none !important
+}
+.wpsisac-slick-slider button.slick-prev, .wpsisac-slick-slider button.slick-prev:hover, .wpsisac-slick-slider button.slick-prev:focus{
+    background: url(/wp-content/themes/Urich-Blog/inc/urich/img/right.svg) center center no-repeat !important;
+    background-size: auto!important;
+    outline:none !important;
+    transform: rotate(180deg);
+}
+ .wpsisac-slick-slider button.slick-next:hover  {
+    opacity: 0.4;
+}
+.wpsisac-slick-slider button.slick-prev:hover  {
+    opacity: 0.4;
+}
+
+.wpsisac-slick-slider.design-2 .slick-next{
+    right: 15% !important;
+
+}
+.wpsisac-slick-slider.design-2 .slick-prev {
+    left: 15% !important;
+}
+.wpsisac-slick-slider button.slick-arrow {
+    width: 60px;
+    height: 60px;
+}
+@media (max-width: 1200px){
+    .wpsisac-slick-slider.design-2 .slick-next{
+        right: 5% !important;
+    }
+    .wpsisac-slick-slider.design-2 .slick-prev {
+        left: 5% !important;
+    }
+}
+@media (max-width: 768px){
+    .wpsisac-slick-slider.design-2 .slick-next{
+        top: 70% !important;
+    }
+    .wpsisac-slick-slider.design-2 .slick-prev {
+        top: 70% !important;
+    }
+}
+/* ------------------------------------------*/
