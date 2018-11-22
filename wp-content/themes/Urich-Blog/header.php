@@ -27,7 +27,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (!empty($mytheme['menu-repeater-items'])): foreach ($mytheme['menu-repeater-items'] as $menuItem): ?>
-                        <li role="presentation" class=""><a href="<?= $mytheme['menu-link'] ?>" role="button"><b><?= $menuItem['menu-title'] ?></b></a></li>
+                        <li role="presentation" class=""><a href="<?= $menuItem['menu-link'] ?>" role="button"><b><?= $menuItem['menu-title'] ?></b></a></li>
                         <?php endforeach;
                         endif; ?>
                     </ul>
