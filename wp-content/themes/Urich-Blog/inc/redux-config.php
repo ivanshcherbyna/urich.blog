@@ -171,6 +171,20 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                 ),
 
 			);
+            /* Set fields */
+            $page404_fields = array(
+                array(
+                    'title' => __('404 картинка', THEME_OPT),
+                    'type' => 'media',
+                    'id' =>'404-img'
+                ),
+                array(
+                    'title' => __('енот', THEME_OPT),
+                    'type' => 'media',
+                    'id' =>'raccoon-img'
+                ),
+
+            );
 
             /* Set sections */
             $this->sections[] = array(
@@ -182,6 +196,11 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                 'title'  => __( 'Подвал сайта', THEME_OPT ),
                 'icon'   => 'el-icon-cog',
                 'fields' => $footer_fields
+            );
+            $this->sections[] = array(
+                'title'  => __( 'страница 404', THEME_OPT ),
+                'icon'   => 'el-icon-cog',
+                'fields' => $page404_fields
             );
 
 

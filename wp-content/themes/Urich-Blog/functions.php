@@ -35,11 +35,9 @@ function lwp_header_scripts()
 
         wp_register_script('themescripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('themescripts');
-        wp_register_script('jquery-v-3.3.1', get_template_directory_uri() . '/inc/urich/libs/jquery.min.js', array('jquery'), '3.3.1',false); // Custom scripts
-        wp_enqueue_script('jquery-v-3.3.1');
     }
 }
-function svitanok_footer_scripts()
+function urich_blog_footer_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
@@ -75,16 +73,18 @@ function lwp_styles() {
     wp_enqueue_style('themestyle');
 
 }
-function svitanok_styles() {
+function urich_blog_styles() {
+    wp_enqueue_style('bootstrap','//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-theme','//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css');
 
-    wp_register_style('topdev_styles', get_template_directory_uri() . '/inc/urich/css/styles.min.css');
-    wp_enqueue_style('topdev_styles');
+    wp_register_style('urich_styles', get_template_directory_uri() . '/inc/urich/css/styles.min.css');
+    wp_enqueue_style('urich_styles');
 
 }
 
 
 // HTML5 Blank navigation
-function svitanok_nav()
+function urich_blog_nav()
 {
 	wp_nav_menu(
 	array(
@@ -266,9 +266,9 @@ function lwpcomments($comment, $args, $depth)
 
 // Add Actions
 add_action('wp_enqueue_scripts', 'lwp_header_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_enqueue_scripts', 'svitanok_footer_scripts'); // Add Custom Scripts to wp_head
+add_action('wp_enqueue_scripts', 'urich_blog_footer_scripts'); // Add Custom Scripts to wp_head
 add_action('wp_enqueue_scripts', 'lwp_styles'); // Add Theme Stylesheet
-add_action('wp_enqueue_scripts', 'svitanok_styles'); // Add ZAGA Theme Stylesheet
+add_action('wp_enqueue_scripts', 'urich_blog_styles'); // Add ZAGA Theme Stylesheet
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('init', 'register_lwp_menu'); // Add HTML5 Blank Menu
 add_action('init', 'lwp_pagination'); // Add our HTML5 Pagination

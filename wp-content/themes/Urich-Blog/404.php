@@ -1,21 +1,18 @@
-<?php get_header(); ?>
+<?php get_header();
+global $mytheme;?>
 
 	<main role="main wrapper" style="text-align: center;">
 		<!-- section -->
-		<section class="library">
 
-			<!-- article -->
-			<article id="post-404">
+                <section class="errors container">
+                    <div class='errors-content'>
+                        <img src="<?= $mytheme['404-img']['url']; ?>" alt="" class='errors-content-img'>
+                        <img src="<?= $mytheme['raccoon-img']['url']; ?>" alt="" class='errors-content-raccoon'>
+                    </div>
+                    <p class='errors-text'><?php _e('There\'s no such page',THEME_OPT); ?></p>
+                    <a class="content-btn btn btn-default" href="<?php echo home_url(); ?>"><?php _e('Go back',THEME_OPT); ?></a>
+                </section>
 
-				<h1 style="color: #353535"><?php _e( 'Сторінка не знайдена', THEME_OPT ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Повернутися на головну', THEME_OPT ); ?></a>
-				</h2>
-
-			</article>
-			<!-- /article -->
-
-		</section>
 		<!-- /section -->
 	</main>
 
