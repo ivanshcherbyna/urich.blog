@@ -74,8 +74,8 @@ function lwp_styles() {
 
 }
 function urich_blog_styles() {
-    wp_enqueue_style('bootstrap','//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css');
-    wp_enqueue_style('bootstrap-theme','//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css');
+    wp_enqueue_style('bootstrap', get_template_directory_uri() . '/inc/urich/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-theme', get_template_directory_uri() . '/inc/urich/css/bootstrap-theme.min.css');
 
     wp_register_style('urich_styles', get_template_directory_uri() . '/inc/urich/css/styles.min.css');
     wp_enqueue_style('urich_styles');
