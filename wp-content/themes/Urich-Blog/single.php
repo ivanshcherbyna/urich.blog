@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Блог-стаття
+ * Template Name: Блог-статья
  * Template Post Type: post
  */
 ?>
@@ -29,7 +29,15 @@
      }
  }
  ?>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Blog</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+</nav>
 <?php
+
 // show content when not has parent category && blog cat number
 //if(in_array($category_parent,$post->post_category) || in_array(5,$post->post_category)):
 if($category_parent==5):?>

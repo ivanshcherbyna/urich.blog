@@ -1,4 +1,9 @@
     <?php global $mytheme; ?>
+            <!-- contact form -->
+            <section class="contacts container">
+                <?php do_action('show_contact_form',$mytheme['contact-shortcode']); ?>
+            </section>
+            <!-- contact form -->
 			<!-- footer -->
             <footer class="container">
                 <div class="footer-content">
@@ -20,7 +25,7 @@
                                 <?php if (!empty($mytheme['footer-slides-list'])):
                                 foreach ($mytheme['footer-slides-list'] as $item):
                                 ?>
-                                <a class='footer-text-contact-link'><img src="<?= $item['image']?> " alt="<?= $item['title'] ?>" title="<?= $item['descripton'] ?>"></a>
+                                <a href="<?= $item['url']?>" class='footer-text-contact-link'><img src="<?= $item['image']?> " alt="<?= $item['title'] ?>" title="<?= $item['description'] ?>"></a>
                                 <?php endforeach;
                                 endif; ?>
                             </div>
@@ -28,12 +33,9 @@
                     </div>
                 </div>
             </footer>
-			<!-- /footer footer-bg -->
+			<!-- /footer -->
 		</div>
 		<!-- /wrapper -->
-
-
-
 		<?php wp_footer(); ?>
 	</body>
 </html>

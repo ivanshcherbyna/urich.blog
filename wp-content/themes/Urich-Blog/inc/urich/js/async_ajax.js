@@ -64,8 +64,8 @@ function genetateListOfNumpagination(allpostsList) {
                 aChildElement.innerHTML = i;                       //set Number of pagination on Front-End
                 var attr = item.toString();                        //parse Array to string of numbers
                 aChildElement.setAttribute('data', attr);         //setting numbers for response by AJAX
-                aChildElement.className += " " + "pagination-list-item-link";         //setting classes for a elements
-                liElement.className += " " + "pagination-list-item";         //setting classes for a elements
+                aChildElement.className += " " + "pagination-item-link";         //setting classes for a elements
+                liElement.className += " " + "pagination-item";         //setting classes for a elements
                 aChildElement.setAttribute('href', '#');
                 // liElement.setAttribute('class', 'pagination-list-item');
                 liElement.appendChild(aChildElement);            //create <li><a></li>
@@ -79,7 +79,7 @@ jQuery(document).ready(genetateListOfNumpagination());
 //define variable for use
 var url = jQuery('.all-numbers-posts').attr('data');// at start use global url ajax for send
 var selectedTab = ''; //temp at start use global variable
-var defaultCategory = '5'; // parent category of BLOG (id)
+var defaultCategory = '4'; // parent category of BLOG (id)
 //event on click TabFilter of Categories
 jQuery(document).ready(function ($) {
 
@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
 })
 //CALL UPDATE POST VIEW BY CLICK ON NUMBER
 jQuery(document).ready(function ($) { // get arguments & call ajax method
-    $('body').on('click','.pagination-list-item-link', function (e) {
+    $('body').on('click','.pagination-item-link', function (e) {
         e.preventDefault();
         $('.active-pagination').removeClass('active-pagination');//set active class for current elements
         $(this).parent().addClass('active-pagination');
@@ -163,7 +163,7 @@ jQuery(document).ready(function($){
 
     $('#pagination-prev').on('click',function (){
         var activeElement = $('.active-pagination');
-        var tempPrev = activeElement.prev('.pagination-list-item');
+        var tempPrev = activeElement.prev('.pagination-item');
         if(tempPrev.length) {
             tempPrev = tempPrev.children('a');
             activeElement.removeClass('active-pagination');
@@ -175,7 +175,7 @@ jQuery(document).ready(function($){
     });
     $('#pagination-next').on('click',function (){
         var activeElement = $('.active-pagination');
-        var tempNext = activeElement.next('.pagination-list-item');
+        var tempNext = activeElement.next('.pagination-item');
         if(tempNext.length) {
             tempNext = tempNext.children('a');
             activeElement.removeClass('active-pagination');

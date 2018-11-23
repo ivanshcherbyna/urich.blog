@@ -56,7 +56,7 @@ $iterator = 0;
 
 <section class="pagination wrapper">
     <div class="arrow arrow-prev" id="pagination-prev">
-        <img src="/inc/urich/img/arrow-hover.png" alt="#">
+        <img src="<?= get_template_directory_uri();?>inc/urich/img/arrow-hover.png" alt="#">
     </div>
     <ul class="pagination-list">
         <li class="pagination-list-item">

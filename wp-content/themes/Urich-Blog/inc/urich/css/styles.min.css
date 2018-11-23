@@ -179,9 +179,11 @@ q:after {
     margin: 0 auto;
   }
 }
-.content-btn:hover {
+.content-btn:hover{
   background-color: #5ead48;
   color: #fff;
+}
+
 }
 @media (min-width: 1400px) {
   .container {
@@ -374,15 +376,15 @@ header {
   text-transform: none;
   border-right: solid 1px #979797;
 }
-.blog .blog-filter .filter-tabs-tab:first-child:hover {
+.blog .blog-filter .filter-tabs-tab:first-child:hover,  .blog .blog-filter .filter-tabs-tab:first-child.active-tab{
   -webkit-border-radius: 40px 0 0 40px;
           border-radius: 40px 0 0 40px;
 }
-.blog .blog-filter .filter-tabs-tab:last-child:hover {
+.blog .blog-filter .filter-tabs-tab:last-child:hover, .blog .blog-filter .filter-tabs-tab:last-child.active-tab {
   -webkit-border-radius: 0 40px 40px 0;
           border-radius: 0 40px 40px 0;
 }
-.blog .blog-filter .filter-tabs-tab:hover {
+.blog .blog-filter .filter-tabs-tab:hover, .blog .blog-filter .active-tab {
   background-color: #4b8f38;
   color: #ffffff;
   font-weight: bold;
@@ -913,7 +915,7 @@ header {
   font-weight: 500;
   text-transform: none;
 }
-.pagination-content .pagination-item-link:hover {
+.pagination-content .pagination-item-link:hover, .pagination-content .active-pagination a {
   background-color: #579d44;
   color: #ffffff;
 }

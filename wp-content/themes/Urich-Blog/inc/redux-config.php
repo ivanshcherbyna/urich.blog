@@ -171,7 +171,7 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                 ),
 
 			);
-            /* Set fields */
+
             $page404_fields = array(
                 array(
                     'title' => __('404 картинка', THEME_OPT),
@@ -183,24 +183,36 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                     'type' => 'media',
                     'id' =>'raccoon-img'
                 ),
+            );
 
+            $contact_form_fields = array(
+                array(
+                    'title' => __('Картинка', THEME_OPT),
+                    'type' => 'media',
+                    'id' =>'contact-form-img'
+                )
             );
 
             /* Set sections */
             $this->sections[] = array(
                 'title'  => __( 'Шапка сайта', THEME_OPT ),
-                'icon'   => 'el-icon-cog',
+                'icon'   => 'el-icon-hand-up',
                 'fields' => $header_fields
             );
             $this->sections[] = array(
                 'title'  => __( 'Подвал сайта', THEME_OPT ),
-                'icon'   => 'el-icon-cog',
+                'icon'   => 'el-icon-hand-down',
                 'fields' => $footer_fields
             );
             $this->sections[] = array(
                 'title'  => __( 'страница 404', THEME_OPT ),
-                'icon'   => 'el-icon-cog',
+                'icon'   => 'el-icon-error',
                 'fields' => $page404_fields
+            );
+            $this->sections[] = array(
+                'title'  => __( 'Контактная форма', THEME_OPT ),
+                'icon'   => 'el-icon-envelope',
+                'fields' => $contact_form_fields
             );
 
 

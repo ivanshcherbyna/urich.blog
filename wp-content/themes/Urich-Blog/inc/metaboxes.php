@@ -13,15 +13,14 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
         $homepage_options = array();
 
         $homepage_fields1 = array(
-		'title' => 'Перший розділ сторінки',
+		'title' => 'Контактная форма',
 		'icon_class'    => 'icon-large',
 		'icon'          => 'el-icon-list-alt',
 		'fields' => array(
 			array(
-				'id'     => 'slick-slider-meta',
-                'title'       => __('Слайдер ',THEME_OPT),
+				'id'     => 'contact-shortcode',
 				'type'   => 'text',
-				'description'  => __( 'Шорткод слайдеру')
+				'description'  => __( 'Шорткод контакт формы',THEME_OPT)
 			)
 		)
 	);
@@ -95,9 +94,6 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
 
 	$homepage_options[] = $homepage_fields1;
-	$homepage_options[] = $homepage_fields2;
-	$homepage_options[] = $homepage_fields3;
-
 
      $contactpage_options = array();
 
@@ -134,7 +130,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
         $metaboxes[] = array(
             'id'            => 'home-page-options',
-            'title'         => __( 'Головна сторінка', THEME_OPT ),
+            'title'         => __( 'Главная страница блога', THEME_OPT ),
             'post_types'    => array( 'page' ),
             'page_template' => array('front-page.php'),
             'position'      => 'normal', // normal, advanced, side
