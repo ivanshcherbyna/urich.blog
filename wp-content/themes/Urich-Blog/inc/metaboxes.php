@@ -12,18 +12,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
         $homepage_options = array();
 
-        $homepage_fields1 = array(
-		'title' => 'Контактная форма',
-		'icon_class'    => 'icon-large',
-		'icon'          => 'el-icon-list-alt',
-		'fields' => array(
-			array(
-				'id'     => 'contact-shortcode',
-				'type'   => 'text',
-				'description'  => __( 'Шорткод контакт формы',THEME_OPT)
-			)
-		)
-	);
+        
         $homepage_fields2 = array(
             'title' => 'Другий розділ сторінки',
             'icon_class'    => 'icon-large',
@@ -93,7 +82,7 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
 
 
-	$homepage_options[] = $homepage_fields1;
+	//$homepage_options[] = $homepage_fields1;
 
      $contactpage_options = array();
 
@@ -128,16 +117,16 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
 
 
-        $metaboxes[] = array(
-            'id'            => 'home-page-options',
-            'title'         => __( 'Главная страница блога', THEME_OPT ),
-            'post_types'    => array( 'page' ),
-            'page_template' => array('front-page.php'),
-            'position'      => 'normal', // normal, advanced, side
-            'priority'      => 'high', // high, core, default, low
-            'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
-            'sections'      => $homepage_options,
-            );
+        // $metaboxes[] = array(
+        //     'id'            => 'home-page-options',
+        //     'title'         => __( 'Главная страница блога', THEME_OPT ),
+        //     'post_types'    => array( 'page' ),
+        //     'page_template' => array('front-page.php'),
+        //     'position'      => 'normal', // normal, advanced, side
+        //     'priority'      => 'high', // high, core, default, low
+        //     'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
+        //     'sections'      => $homepage_options,
+        //     );
 
 	    $metaboxes[] = array(
                 'id'            => 'contact-page-options',

@@ -190,9 +190,20 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                     'title' => __('Картинка', THEME_OPT),
                     'type' => 'media',
                     'id' =>'contact-form-img'
-                )
-            );
-
+				),
+				array(
+					'id'     => 'contact-shortcode',
+					'type'   => 'text',
+					'description'  => __( 'Шорткод контакт формы',THEME_OPT)
+				)
+		);
+			$search_form_fields = array(
+							array(
+								'title' => __('Картинка', THEME_OPT),
+								'type' => 'media',
+								'id' =>'raccoon-seacrh'
+							)
+					);
             /* Set sections */
             $this->sections[] = array(
                 'title'  => __( 'Шапка сайта', THEME_OPT ),
@@ -214,7 +225,11 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                 'icon'   => 'el-icon-envelope',
                 'fields' => $contact_form_fields
             );
-
+			$this->sections[] = array(
+							'title'  => __( 'Страница поиска', THEME_OPT ),
+							'icon'   => 'el-icon-envelope',
+							'fields' => $search_form_fields
+						);
 
 		}
 

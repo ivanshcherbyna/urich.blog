@@ -138,7 +138,7 @@ function updateSlug(currentNum, currentCategory, url, reloadPagination, searchSt
             //window.history.pushState('','',this.url); //generate new URL in widow browser
             //data - is string at first
             //$data - is object now to use
-            $(document).find('.blog-content').html($data.find('.blog-content').html()).animate({opacity: "1" }, 300, "linear", function () {
+            $(document).find('.blog-content').html($data.find('.blog-content').html()).animate({opacity: "1" }, 700, "linear", function () {
 
             });
             $(document).find('.all-numbers-posts').val($data.find('.all-numbers-posts').val());
@@ -217,6 +217,10 @@ jQuery(document).ready(function($){
     //console.log(search_string);
         if (selectedTab=='') selectedTab = defaultCategory;
         updateSlug('', defaultCategory, url, true, search_string);//true - reload list of pagination
+        if($('.search-page-textunder')){
+            console.log('Current result for '+search_string);
+            $('.search-page-textunder').html('Current result for '+search_string);
+        }
     }
 
 })

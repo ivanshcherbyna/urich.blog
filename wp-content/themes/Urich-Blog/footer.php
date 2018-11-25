@@ -1,4 +1,4 @@
-    <?php global $mytheme; ?>
+    <?php global $mytheme, $post; ?>
             <!-- contact form -->
             <section class="contacts container">
                 <?php do_action('show_contact_form',$mytheme['contact-shortcode']); ?>

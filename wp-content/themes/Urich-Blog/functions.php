@@ -438,6 +438,7 @@ function get_blog_posts($category_ids, $numbers=6,$blog_categories_ids, $searche
     <?php
         }
 }
+
 add_action('show_blog_posts','get_blog_posts',10,4);
 //use for add_action to generate html content
 function show_view_posts_html($posts){
@@ -453,7 +454,6 @@ function show_view_posts_html($posts){
                 if($i>1) $post_cat.=', ';
                 $post_cat .= $cat->name;
             }
-
         }
         $link = get_permalink($post->ID);
 
@@ -462,7 +462,8 @@ function show_view_posts_html($posts){
         $post_author_url = esc_attr(get_the_author_posts_link());
         $content = $post->post_content;
         $part_content = mb_substr($content,0,530); // only 530 symbols of post content preview
-        //$part_content .= '&hellip;'; // only 150 symbols of post content preview
+        $part_content = sanitize_text_field($part_content);
+        $part_content .= '&hellip;'; 
 
         $post_date_string = $post->post_date; //string format in db 2018-07-25 12:31:08
         $post_date = new DateTime($post_date_string);
@@ -473,13 +474,13 @@ function show_view_posts_html($posts){
         ?>
         <a class="blog-content-item" data-category="<?= $post_cat ?>"  href="<?= $link ?>">
             <div class="blog-content-item-info">
-                <img src="<?= $image ?>" alt="#" class="blog-content-item-info-img">
+                <img src="<?= $image ?>" style="max-height:161px;" alt="#" class="blog-content-item-info-img">
             </div>
             <div class="blog-content-item-text">
                 <div class="blog-content-item-text-info"><span class="blog-content-item-text-info-company"><?= $post_author; ?> </span><span>/<?= $formatted_post_date ?></span>
                 </div>
                 <h4 class="blog-content-item-info-text-header"><?= $title ?></h4>
-                <p class="blog-content-item-info-text-content"><?= $part_content ?>...</p>
+                <p class="blog-content-item-info-text-content"><?= $part_content ?></p>
             </div>
         </a>
 

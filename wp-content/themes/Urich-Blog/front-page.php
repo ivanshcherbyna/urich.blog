@@ -53,6 +53,5 @@ $iterator = 0;
 <section class="container ">
     <?= do_action('show_pagination' ); ?>
 </section>
-<?php get_footer();
 
-?>
+<?php get_footer();?>
