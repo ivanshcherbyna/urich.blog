@@ -142,7 +142,7 @@ wp-content/plugins/wp-migrate-db
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
-
+/ignore-html/
 
 
 # End of https://www.gitignore.io/api/intellij,phpstorm,wordpress

@@ -4,17 +4,17 @@
  * Plugin URI: https://www.wponlinesupport.com/plugins
  * Text Domain: wp-slick-slider-and-image-carousel
  * Domain Path: /languages/
- * Description: Easy to add and display wp slick image slider and carousel  
- * Author: WP Online Support
- * Version: 1.5.1
+ * Description: Easy to add and display wp slick image slider and carousel. Also work with Gutenberg shortcode block.  
+ * Author: WP OnlineSupport
+ * Version: 1.6
  * Author URI: https://www.wponlinesupport.com
  *
  * @package WordPress
- * @author WP Online Support
+ * @author WP OnlineSupport
  */
 
 if( !defined('WPSISAC_VERSION') ) {
-    define( 'WPSISAC_VERSION', '1.5.1' ); // Plugin version
+    define( 'WPSISAC_VERSION', '1.6' ); // Plugin version
 }
 if( !defined( 'WPSISAC_VERSION_DIR' ) ) {
     define( 'WPSISAC_VERSION_DIR', dirname( __FILE__ ) ); // Plugin dir

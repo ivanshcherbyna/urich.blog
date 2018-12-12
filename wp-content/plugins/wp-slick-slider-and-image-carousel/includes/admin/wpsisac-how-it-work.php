@@ -198,7 +198,7 @@ function wpsisacm_howitwork_page() { ?>
 													<span class="wpsisacm-shortcode-preview">[slick-slider]</span> – <?php _e('Slick slider Shortcode (design-1 to design-5)', 'wp-slick-slider-and-image-carousel'); ?> <br />
 													<span class="wpsisacm-shortcode-preview">[slick-carousel-slider]</span> – <?php _e('Slick slider carousel Shortcode (design-6)', 'wp-slick-slider-and-image-carousel'); ?> <br />
 													<span class="wpsisacm-shortcode-preview">[slick-carousel-slider centermode="true"]</span> – <?php _e('Slick slider carousel with center mode Shortcode (design-6)', 'wp-slick-slider-and-image-carousel'); ?> <br />
-													<span class="wpsisacm-shortcode-preview">[slick-carousel-slider variablewidth="true"]</span> – <?php _e('Slick slider carousel with variablewidth Shortcode (design-6)', 'wp-slick-slider-and-image-carousel'); ?>
+													<span class="wpsisacm-shortcode-preview">[slick-carousel-slider variablewidth="true" centermode="true"]</span> – <?php _e('Slick slider carousel with variablewidth Shortcode (design-6)', 'wp-slick-slider-and-image-carousel'); ?>
 												</td>
 											</tr>						
 												

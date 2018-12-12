@@ -2,12 +2,12 @@
 Contributors: wponlinesupport, anoopranawat, pratik-jain
 Tags: wponlinesupport, slick, image slider, slick slider, slick image slider, slider, image slider, header image slider, responsive image slider, responsive content slider, carousel, image carousel, carousel slider, content slider, coin slider, touch slider, text slider, responsive slider, responsive slideshow, Responsive Touch Slider, wp slider, wp image slider, wp header image slider, photo slider, responsive photo slider  
 Requires at least: 3.5
-Tested up to: 4.9.6
+Tested up to: 5.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A quick, easy way to add and display mulipale WP Slick Slider and carousel using a shortcode. 
+A quick, easy way to add and display mulipale WP Slick Slider and carousel using a shortcode. Also work with Gutenberg shortcode block.
 
 == Description ==
 
@@ -19,7 +19,7 @@ We have added 5 designs for slider and 1 design for carousel. You can find all d
 
 Check [DEMO](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image-carousel/) | [PRO DEMO and Features](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image-carousel/) for additional information.
 
-[PowerPack Lite](https://wordpress.org/plugins/powerpack-lite/) our new **FREE WordPress Plugin**. Try it Now.
+Also work with Gutenberg shortcode block.
 
 = You can use 2 shortcodes =
 
@@ -87,6 +87,7 @@ Check [DEMO](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image
 
 = Features include =
 
+* Also work with Gutenberg shortcode block.
 * Display unlimited number of slider and carousel with the help of category.
 * Touch-enabled Navigation.
 * Fully responsive. Scales with its container.
@@ -117,8 +118,15 @@ Check [DEMO](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image
 4. Design-4
 5. Design-5
 6. Design-6
+7. Also work with Gutenberg shortcode block.
 
 == Changelog ==
+
+= 1.6 (06-12-2018) =
+* [*] Tested with WordPress 5.0 and Gutenberg.
+* [*] Fixed slider height issues with some designs.
+* [*] Taken better security with `esc_url` and `esc_html`. 
+* [*] Fixed some CSS issues.
 
 = 1.5.1 (05, June 2018) =
 * [*] Follow some WordPress Detailed Plugin Guidelines.
