@@ -1,9 +1,11 @@
     <?php global $mytheme, $post; ?>
+    <?php if (!is_404()): ?>
             <!-- contact form -->
             <section class="contacts container">
                 <?php do_action('show_contact_form',$mytheme['contact-shortcode']); ?>
             </section>
             <!-- contact form -->
+        <?php endif; ?>
 			<!-- footer -->
             <footer class="container">
                 <div class="footer-content">

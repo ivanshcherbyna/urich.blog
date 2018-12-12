@@ -204,6 +204,34 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
 								'id' =>'raccoon-seacrh'
 							)
 					);
+			$article_form_fields = array(
+					array(
+						'title' => __('Картинка персонажа', THEME_OPT),
+						'type' => 'media',
+						'id' =>'raccoon-article'
+					),
+					array(
+						'title' => __('Картинка Facebook', THEME_OPT),
+						'type' => 'media',
+						'id' =>'Facebook-article'
+					),
+					array(
+						'title' => __('Картинка Twitter', THEME_OPT),
+						'type' => 'media',
+						'id' =>'Twitter-article'
+					),
+					array(
+						'title' => __('Картинка Google+', THEME_OPT),
+						'type' => 'media',
+						'id' =>'Google-article'
+					),
+					array(
+						'title' => __('Картинка LinkedID', THEME_OPT),
+						'type' => 'media',
+						'id' =>'LinkedID-article'
+					),
+
+			);
             /* Set sections */
             $this->sections[] = array(
                 'title'  => __( 'Шапка сайта', THEME_OPT ),
@@ -226,10 +254,15 @@ if ( ! class_exists( 'Redux_Framework_Lwp_config' ) ) {
                 'fields' => $contact_form_fields
             );
 			$this->sections[] = array(
-							'title'  => __( 'Страница поиска', THEME_OPT ),
-							'icon'   => 'el-icon-envelope',
-							'fields' => $search_form_fields
-						);
+				'title'  => __( 'Страница поиска', THEME_OPT ),
+				'icon'   => 'el-icon-search',
+				'fields' => $search_form_fields
+			);
+			$this->sections[] = array(
+				'title'  => __( 'Страница статьи', THEME_OPT ),
+				'icon'   => 'el-icon-edit',
+				'fields' => $article_form_fields
+			);
 
 		}
 

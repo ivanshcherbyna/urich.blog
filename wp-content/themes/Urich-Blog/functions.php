@@ -296,9 +296,11 @@ add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excer
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 
+
+
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
-
+remove_filter( 'the_content', 'wpautop' );
 include_once 'inc/loader.php';
 
 function getContactForm($shortcode){
@@ -315,73 +317,29 @@ function getContactForm($shortcode){
 }
 add_action('show_contact_form','getContactForm',10,1);
 
-function breadcrumbs($separator = ' » ', $home = 'Головна') {
- global $post;
- if($post) {
-     $post_categories = get_the_category($post->ID);
-     // var_dump($post_categories);
-     //last position in breadcrumbs
-     $breadcrumbs_title[] = '<a href="#">' . get_the_title() . '</a>';
-     //first position in breadcrumbs
-     $breadcrumbs = array("</span><a href=\"/\"><span>$home</a></span>");
-     //check blog page from parent category at cat_ID #5
-     if (!empty($post_categories[0]) && ($post_categories[0]->term_id == 5 || $post_categories[0]->category_parent == 5)) {
-         $breadcrumbs[] = '<a href="/blog/">Блог</a>';
-     }
-     $breadcrumbs[] = get_the_title();
-
-
-     return implode($separator, $breadcrumbs);
- }
-}
 add_action('show_last_posts','get_my_last_posts',10,2);
 
-//for home page with use slider (slick)
-//function get_my_last_posts($category_slug=null, $numbers=-1)
-//    {
-//        $args = array(
-//            'orderby' => 'date',
-//            'order' => 'DESC',
-//            'numberposts' => $numbers,
-//            'category_name' => $category_slug,
-//            'post_status' => 'publish',
-//            'post_type' => array('post')
-//        );
-//
-//        $posts = get_posts($args);
-//        if($posts) {
-//            echo '<section class="news">';
-//                echo '<h2 class="news-header">Наші новини</h2>';
-//                echo '<hr class="line news-hr">';
-//                echo '<div class="slick-slider news-content wrapper">';
-//                show_posts_html($posts);
-//                echo '</div>';
-//            echo '</section>';
-//        }
-//
-//    }
 
+function get_same_posts($category, $exclude_post_id, $category_slug=null, $numbers=3, $min_view)
+{
 
-//function get_same_posts($category, $exclude_post_id, $category_slug=null, $numbers=3)
-//{
-//
-//    $args = array(
-//        'orderby' => 'date',
-//        'order' => 'ASC',
-//        'numberposts' => $numbers,
-//        'category' => $category,
-//        'category_name' => $category_slug,
-//        'exclude' => $exclude_post_id,
-//        'post_status' => 'publish',
-//        'post_type' => array('post')
-//
-//    );
-//    $posts = get_posts($args);
-//    if($posts) {
-//        show_view_posts_html($posts);
-//    }
-//}
-//add_action('show_same_posts','get_same_posts',10,4);
+   $args = array(
+       'orderby' => 'date',
+       'order' => 'ASC',
+       'numberposts' => $numbers,
+       'category' => $category,
+       'category_name' => $category_slug,
+       'exclude' => $exclude_post_id,
+       'post_status' => 'publish',
+       'post_type' => array('post')
+
+   );
+   $posts = get_posts($args);
+   if($posts) {
+       show_view_posts_html($posts,$min_view);
+   }
+}
+add_action('show_same_posts','get_same_posts',10,5);
 
 function get_blog_posts($category_ids, $numbers=6,$blog_categories_ids, $searched_string=null, $exclude_post_id=null)
 {
@@ -441,8 +399,8 @@ function get_blog_posts($category_ids, $numbers=6,$blog_categories_ids, $searche
 
 add_action('show_blog_posts','get_blog_posts',10,4);
 //use for add_action to generate html content
-function show_view_posts_html($posts){
-
+function show_view_posts_html($posts, $min_view=null){
+   
     foreach ($posts as $post) :
 
         setup_postdata($post);
@@ -457,9 +415,11 @@ function show_view_posts_html($posts){
         }
         $link = get_permalink($post->ID);
 
-        $post_author_id=$post->post_author;
-        $post_author= get_the_author_meta( 'display_name' , $post_author_id );
-        $post_author_url = esc_attr(get_the_author_posts_link());
+        $post_author_id = $post->post_author;
+        $post_author = get_user_meta( $post_author_id, 'nickname', true );
+        $post_author_url = get_author_posts_url($post_author_id);
+        
+        
         $content = $post->post_content;
         $part_content = mb_substr($content,0,530); // only 530 symbols of post content preview
         $part_content = sanitize_text_field($part_content);
@@ -471,10 +431,18 @@ function show_view_posts_html($posts){
         $title = get_the_title($post);
         $image = get_the_post_thumbnail_url($post, 'medium');
 //        var_dump(esc_attr($post_author_url));
+        if($min_view):
         ?>
+        <a class="sidebar-list-item" data-category="<?= $post_cat ?>"  href="<?= $link ?>">
+                <img src="<?= $image ?>" style="" alt="#" class="blog-content-item-info-img">
+                <h4 class="sidebar-list-item-text"><?= $title ?></h4>
+        </a>
+
+    <?php
+    else: ?>
         <a class="blog-content-item" data-category="<?= $post_cat ?>"  href="<?= $link ?>">
             <div class="blog-content-item-info">
-                <img src="<?= $image ?>" style="max-height:161px;" alt="#" class="blog-content-item-info-img">
+                <img src="<?= $image ?>" style="" alt="#" class="blog-content-item-info-img">
             </div>
             <div class="blog-content-item-text">
                 <div class="blog-content-item-text-info"><span class="blog-content-item-text-info-company"><?= $post_author; ?> </span><span>/<?= $formatted_post_date ?></span>
@@ -485,6 +453,7 @@ function show_view_posts_html($posts){
         </a>
 
     <?php
+    endif;
     endforeach;
     wp_reset_postdata();
     ?>
@@ -509,119 +478,5 @@ function paginationUrich(){
     <?php
 }
 add_action('show_pagination','paginationUrich');
-
-function get_my_blog($category_slug, $number_pagination=null)
-    {
-
-        $all_posts_args=array(
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'numberposts' => -1,
-            'category_name' => $category_slug,
-            'post_status' => 'publish',
-            'fields'          => 'ids',
-            'post_type' => array('post')
-
-        );
-        $all_post_ids=get_posts($all_posts_args);
-
-
-    $args = array(
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'category_name' => $category_slug,
-        'post_status' => 'publish',
-        'post_type' => array('post'),
-    );
-
-        $pagination =  $number_pagination; //if set current pagination
-        $numberposts = empty($pagination)? -1 :$pagination; // if not set current pagination (show last 3 posts) for start page
-
-    $args['include']=$pagination;
-    $args['numberposts']=$numberposts;
-
-
-    $posts = get_posts($args);
-
-    echo '<input type="hidden" class="all-numbers-posts hidden" value="'.implode( "," ,$all_post_ids).'" data="'.get_permalink().'"/>';
-
-
-        foreach ($posts as $post) :
-
-    setup_postdata($post);
-    $title = get_the_title($post);
-
-    $content=$post->post_content;
-    $post_author_id=$post->post_author;
-    $post_author= get_the_author_meta( 'display_name' , $post_author_id );
-    $part_content= substr($content,0,230); // only 150 symbols of post content preview
-    $link =get_permalink($post->ID);
-    $post_date_string=$post->post_date; //string format in db 2018-07-25 12:31:08
-    $post_date = new DateTime($post_date_string);
-    $post_date=$post_date->format('d F Y'); // object format in June 2, 2018
-        $size= array('368','239');
-    $image=get_the_post_thumbnail_url($post, 'full');
-
-    ?>
-       <!-- Post -->
-            <article class="blog-list-item">
-                <div class="blog-list-item-img"><img class="blog-list-item-img-bg"  src="<?=$image?>" alt="article"></div>
-                <div class="blog-list-item-content">
-                    <div class="blog-list-item-content-wrap">
-                        <div class="blog-list-item-content-header"><?=$post_date?></div>
-                        <div class="blog-list-item-content-body">
-                            <h4 class="blog-list-item-content-body-head"><?=$title?> </h4>
-                            <p class="blog-list-item-content-body-text"><?=$part_content?></p>
-                        </div>
-                        <div class="blog-list-item-content-footer">
-                            <a href='<?=$link?>' class="content-button">Read</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        <!-- Post -->
-<?php
-endforeach;
-?>
- <div class="pagination">
-                <ul>
-
-                </ul>
-            </div>
-<?php
-wp_reset_postdata(); // reset
-}
-
-/*------ajax social share-----*/
-add_action('wp_ajax_social_share','social_save_update');
-add_action('wp_ajax_nopriv_social_share','social_save_update');
-function social_save_update(){
-    $result = false;
-    $post_id = sanitize_text_field($_POST['current_post_id']);
-
-    $social = isset($_POST['social_value'])? sanitize_text_field($_POST['social_value']) : null;
-
-    $social_key = '';
-    if( !empty($social) && $social == 'share_btn_gl') $social_key='google_plus_count';
-    elseif (!empty($social) && $social == 'share_btn_tw') $social_key='twitter_count';
-    elseif (!empty($social) && $social == 'share_btn_fb') $social_key='facebook_count';
-    else return $result;
-
-    if (!empty($post_id) ) {
-
-        $exist_social_value = !empty(get_post_meta($post_id, $social_key, true)) ? get_post_meta($post_id, $social_key, true) : 0;
-        ++$exist_social_value;
-        update_post_meta($post_id, $social_key, $exist_social_value);
-
-        $result= true;
-    }
-    return wp_send_json_success($result);
-
-    wp_die();
-}
-
-
-remove_action('wp_head', 'wp_generator');
-
 
 ?>

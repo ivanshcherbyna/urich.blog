@@ -1,7 +1,6 @@
 <?php get_header();
 global $mytheme;?>
 
-	<main role="main wrapper" style="text-align: center;">
 		<!-- section -->
 
                 <section class="errors container">
@@ -14,6 +13,5 @@ global $mytheme;?>
                 </section>
 
 		<!-- /section -->
-	</main>
 
 <?php get_footer(); ?>

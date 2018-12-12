@@ -51,37 +51,27 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
             )
         );
-        $homepage_fields3 = array(
-            'title' => 'Третій розділ сторінки',
+
+        $post_fields = array(
+            'title' => 'Поля статьи',
             'icon_class'    => 'icon-large',
             'icon'          => 'el-icon-list-alt',
             'fields' => array(
                 array(
-                    'id'     => 'front-secont-string-head',
+                    'id'     => 'head_post',
                     'type'   => 'text',
-                    'description'  => __( 'Залоговок')
+                    'description'  => __( 'Заглавие в статье')
                 ),
-                array(
-                    'id'     => 'front-image',
-                    'type'   => 'media',
-                    'title'  => __( 'Зображення',THEME_OPT)
-                ),
-                array(
-                    'id'     => 'front-content',
-                    'type'   => 'editor',
-                    'title'  => __( 'Зміст')
-                ),
-                array(
-                    'id'     => 'link-front',
-                    'type'   => 'text',
-                    'title'  => __( 'посилання')
-                ),
-
+                // array(
+                //     'id'     => 'custom_post-image',
+                //     'type'   => 'media',
+                //     'title'  => __( 'Картинка',THEME_OPT)
+                // ),
             )
         );
 
 
-
+    $custom_post_options[] = $post_fields;
 	//$homepage_options[] = $homepage_fields1;
 
      $contactpage_options = array();
@@ -117,17 +107,27 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
 
 
 
-        // $metaboxes[] = array(
-        //     'id'            => 'home-page-options',
-        //     'title'         => __( 'Главная страница блога', THEME_OPT ),
-        //     'post_types'    => array( 'page' ),
-        //     'page_template' => array('front-page.php'),
-        //     'position'      => 'normal', // normal, advanced, side
-        //     'priority'      => 'high', // high, core, default, low
-        //     'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
-        //     'sections'      => $homepage_options,
-        //     );
+        $metaboxes[] = array(
+            'id'            => 'home-page-options',
+            'title'         => __( 'Главная страница блога', THEME_OPT ),
+            'post_types'    => array( 'page' ),
+            'page_template' => array('front-page.php'),
+            'position'      => 'normal', // normal, advanced, side
+            'priority'      => 'high', // high, core, default, low
+            'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
+            'sections'      => $homepage_options,
+            );
 
+        // $metaboxes[] = array(
+        //         'id'            => 'custom-post-options',
+        //         'title'         => __( 'Страница статьи', THEME_OPT ),
+        //         'post_types'    => array( 'post' ),
+        //         'page_template' => array('single.php'),
+        //         'position'      => 'normal', // normal, advanced, side
+        //         'priority'      => 'high', // high, core, default, low
+        //         'sidebar'       => false, // enable/disable the sidebar in the normal/advanced positions
+        //         'sections'      => $custom_post_options,
+        //         );
 	    $metaboxes[] = array(
                 'id'            => 'contact-page-options',
                 'title'         => __( 'Сторінка батькам', THEME_OPT ),
